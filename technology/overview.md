@@ -93,6 +93,7 @@ Autorisierung bestimmter Ressourcen
 
 ## Kerberos
 
+
 ## Quellen
 https://de.wikipedia.org/wiki/Single_Sign-on  
 https://de.wikipedia.org/wiki/Ticket_Granting_Ticket  
