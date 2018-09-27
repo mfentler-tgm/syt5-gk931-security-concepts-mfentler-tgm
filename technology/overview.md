@@ -21,7 +21,21 @@ Eine weitere Anforderung an das SSO ist es, dass es nicht schwächer als das nor
 (+) Sicherheit -> Benutzer muss sich nur ein Passwort merken und es wird nur einmal übertragen.  
 (+) Phishing-Attacken werden erschwert -> Nur noch eine Eingabe auf einer Webseite, etc.
 
+### Token-Authentifizierung
+Portallösung:  
+Mit Hilfe von Cookies wird gespeichert, dass der User angemeldet ist.  
+
+Ticketing System:  
+Gemeinsame Identitfikation für einen Benutzer zwischen Diensten über ein virtuelles Ticket.  
+
+Lokale Lösung:  
+Lokale Anwendungen können die Anmeldeinformationen automatisch einfügen. (Avast macht das beispielsweise)  
+
+### Einsatzgebiete
+Webseiten  
+
 ## Ticket Granting Ticket Service (TGT)
+
 
 ## Central Authentication Service (CAS)
 
