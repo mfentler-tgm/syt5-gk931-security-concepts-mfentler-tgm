@@ -40,6 +40,9 @@ TGT wird bei Kerberos verwendet.
 
 (+) Gilt als sicher, weil es die IP-Addresse des Benutzers, die Gültigkeitsdauer des TGT und ienen Session Key enthält.
 
+### Einsatzgebiete
+Kerberos
+
 ## Central Authentication Service (CAS)
 CAS ist im grunde genommen eine Web-Anwendung auf einem CAS Server, die die Anmeldung und Authentifizierung übernimmt. Dazu braucht man 3 URLs, mit denen das Anmelde- und Authentifizierungsverfahren durch eine HTTPS-Verbindung zum Server abgewickelt wird.  
 - Login-URL:
@@ -60,8 +63,10 @@ Ein Einsatzgebiet könnte beispielsweise sein, um Bildunsinstitute zu vernetzen 
 Ist eine Api-Applikation für Desktop-/Web-/Mobileanwendungen.  
 Das OAuth 2.0-Autorisierungsframework ermöglicht Drittanbieter Anwendung, um begrenzten Zugriff auf einen HTTP-Dienst zu erhalten, entweder auf im Namen eines Ressourcenbesitzers durch Orchestrieren einer Genehmigungsinteraktion zwischen dem Ressourcenbesitzer und dem HTTP-Dienst oder Anwendung von Drittanbietern, um Zugriff in eigenem Namen zu erhalten.
 
+Mit Hilfe von OAuth kann ein User einer Drittanwendung erlauben, auf seine Daten zuzugreifen, die bei einem anderen Dienst gespeichert sind ohne dabei dem Drittanbieter dabei die Zugangsdaten preiszugeben.
+
 ### Einsatzgebiete
-Google Sign-On auf Webseiten beispielsweise.
+Dienste von Google, Facebook, Twitter etc. benutzen OAuth.
 
 ## Security Assertion Markup Language (SAML)
 XML-Framework zum Austausch von Authentifizierungsinformationen.  
@@ -81,6 +86,11 @@ Authentifizierung für Subjekt S zur Zeit t mittels M (Single Sign-On)
 Subjekt S verfügt über Attribut A mit dem Wert a (verteilte Transaktionen)
 - Authorization decision statement  
 Autorisierung bestimmter Ressourcen
+
+### Einsatzgebiete
+- Webanwendungen
+- Webservices
+
 ## Kerberos
 
 ## Quellen
@@ -90,6 +100,11 @@ https://de.wikipedia.org/wiki/Central_Authentication_Service
 https://de.wikipedia.org/wiki/OAuth  
 https://oauth.net/2/  
 https://de.wikipedia.org/wiki/Security_Assertion_Markup_Language  
+https://www.security-insider.de/was-ist-oauth-a-712468/  
+https://de.wikipedia.org/wiki/Kerberos_(Informatik)  
+http://www.kerberos.org/docs/index.html  
+https://dafrk-blog.com/de/sso-kerberos-saml-oauth-sap/  
+https://www.getkisi.com/blog/authentication-protocols-overview  
 
 
 
