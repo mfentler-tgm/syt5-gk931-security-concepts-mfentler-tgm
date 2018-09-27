@@ -41,7 +41,21 @@ TGT wird bei Kerberos verwendet.
 (+) Gilt als sicher, weil es die IP-Addresse des Benutzers, die Gültigkeitsdauer des TGT und ienen Session Key enthält.
 
 ## Central Authentication Service (CAS)
+CAS ist im grunde genommen eine Web-Anwendung auf einem CAS Server, die die Anmeldung und Authentifizierung übernimmt. Dazu braucht man 3 URLs, mit denen das Anmelde- und Authentifizierungsverfahren durch eine HTTPS-Verbindung zum Server abgewickelt wird.  
+- Login-URL:
+Über eine Service-URL des Webservices gelangt man zur Login-URL.  
+Hier werden Username und Passwort abgefragt und geprüft. Sofern die Anmeldung erfolgreich war wird man zur Service-URL mit einem Ticketparameter zurück geleitet. 
+- Validation-URL:
+Es wird überprüft ob das Ticket in der DB vorhanden ist. Wenn das der Fall ist, dann wird dem Benutzer der Zugriff gewährt.
+- Logout-URL:
+Anhand eines TGT-Cookies wird überprüft ob der Benutzer angemeldet ist und dann auf alles besuchten CAS Client Web Services abgemeldet.  
 
+### Einsatzgebiete
+Das CAS Protokoll ist ein offenes Protokoll, zu dem die CAS Server Implementierungen bekannt sind:  
+RubyCAS  
+CASino
+
+Ein Einsatzgebiet könnte beispielsweise sein, um Bildunsinstitute zu vernetzen und einen freien Wissensaustausch zu ermöglichen.
 ## Open Authorization (OAuth)
 
 ## Security Assertion Markup Language (SAML)
@@ -50,4 +64,6 @@ TGT wird bei Kerberos verwendet.
 
 ## Quellen
 https://de.wikipedia.org/wiki/Single_Sign-on  
-https://de.wikipedia.org/wiki/Ticket_Granting_Ticket
+https://de.wikipedia.org/wiki/Ticket_Granting_Ticket  
+https://de.wikipedia.org/wiki/Central_Authentication_Service  
+
