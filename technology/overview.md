@@ -35,7 +35,10 @@ Lokale Anwendungen können die Anmeldeinformationen automatisch einfügen. (Avas
 Webseiten  
 
 ## Ticket Granting Ticket Service (TGT)
+Das TGT ist eine kleine Date, die einem den Zugang zum Datenaustausch erlaubt.  
+TGT wird bei Kerberos verwendet.
 
+(+) Gilt als sicher, weil es die IP-Addresse des Benutzers, die Gültigkeitsdauer des TGT und ienen Session Key enthält.
 
 ## Central Authentication Service (CAS)
 
@@ -47,3 +50,4 @@ Webseiten
 
 ## Quellen
 https://de.wikipedia.org/wiki/Single_Sign-on  
+https://de.wikipedia.org/wiki/Ticket_Granting_Ticket
