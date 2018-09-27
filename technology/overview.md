@@ -57,10 +57,11 @@ CASino
 
 Ein Einsatzgebiet könnte beispielsweise sein, um Bildunsinstitute zu vernetzen und einen freien Wissensaustausch zu ermöglichen.
 ## Open Authorization 2.0 (OAuth)
-Ist ein offenes Protokoll, das Api-Authorisierungen für Desktop-, Web- und Mobileanwendungen erlaubt.  
-Der Benutzer erlaubt den zugriff auf seine Daten, die von einem anderen dienst bereitgestellt werden, ohne dabei die Zugangsdaten auf der Webseite einzugeben.  
+Ist eine Api-Applikation für Desktop-/Web-/Mobileanwendungen.  
+Das OAuth 2.0-Autorisierungsframework ermöglicht Drittanbieter Anwendung, um begrenzten Zugriff auf einen HTTP-Dienst zu erhalten, entweder auf im Namen eines Ressourcenbesitzers durch Orchestrieren einer Genehmigungsinteraktion zwischen dem Ressourcenbesitzer und dem HTTP-Dienst oder Anwendung von Drittanbietern, um Zugriff in eigenem Namen zu erhalten.
 
-Somit kann man 
+### Einsatzgebiete
+Google Sign-On auf Webseiten beispielsweise.
 
 ## Security Assertion Markup Language (SAML)
 
