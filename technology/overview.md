@@ -92,7 +92,12 @@ Autorisierung bestimmter Ressourcen
 - Webservices
 
 ## Kerberos
+Kerberos ist ein Authentifizierungsprotokoll. Es ünterstützt SSO.  
+Genauggenommen besteht es aus 3 Diensten:
 
+- AS Exchange, ein Authentication Service, der die Authentifizierung übernimmt
+- TGS Exchange, stellt die TGT Tickets für den Zugriff auf die Dienste aus.
+- Client/Server Exchange, ist die Komponente über die ein Service Ticket verarbeitet wird.
 
 ## Quellen
 https://de.wikipedia.org/wiki/Single_Sign-on  
