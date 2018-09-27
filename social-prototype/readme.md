@@ -5,7 +5,6 @@ https://spring.io/guides/tutorials/spring-boot-oauth2/#_social_login_simple
 
 ## Durchgeführte Schritte:
 - Clonen vom Repo
-- Mit Maven runnen
 - Erstellen eines simplen Interfaces mit einem Login und Logout Link für Facebook.
       
       <h1>Login</h1>
@@ -51,5 +50,30 @@ https://spring.io/guides/tutorials/spring-boot-oauth2/#_social_login_simple
               return true;
             }
           </script>
+- SpringBootApplication:
+           
+            @SpringBootApplication
+            @EnableOAuth2Sso
+            @RestController
+            public class SocialApplication extends WebSecurityConfigurerAdapter {
 
+                  @RequestMapping("/user")
+                  public Principal user(Principal principal) {
+                        return principal;
+                  }
+
+                  @Override
+                  protected void configure(HttpSecurity http) throws Exception {
+                        http.antMatcher("/**").authorizeRequests().antMatchers("/", "/login**", "/webjars/**",                                              "/error**").permitAll().anyRequest()
+                                    .authenticated();
+                  }
+
+                  public static void main(String[] args) {
+                        SpringApplication.run(SocialApplication.class, args);
+                  }
+
+                  }
+- Mit Maven runnen
+
+          mvn spring-boot:run
 ## Testen
