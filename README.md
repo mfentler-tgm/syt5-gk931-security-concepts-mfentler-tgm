@@ -30,19 +30,19 @@ Die Prototypen sollen klar und einfach gehalten werden und mit entsprechender Do
 ## Bewertung
 Gruppengrösse: 1 Person
 ### Anforderungen **überwiegend erfüllt**
-+ Aufzählung und Quellenrecherche der in der Einführung erwähnter Technologien
-+ Vergleich der Technologien auf mögliche Einsatzgebiete
-+ Erstellung eines Prototypen zur Authentifikation mittels sozialer Dienste
-+ Verwendung von Deployment-Tool und entsprechende Dokumentation der notwendigen Schritte
-+ Testen der Webapplikation und Dokumentation der einzelnen Testfälle und deren Ergebnisse
++ Aufzählung und Quellenrecherche der in der Einführung erwähnter Technologien (30/200)
++ Vergleich der Technologien auf mögliche Einsatzgebiete (30/200)
++ Erstellung eines Prototypen zur Authentifikation mittels sozialer Dienste (30/200)
++ Verwendung von Deployment-Tool und entsprechende Dokumentation der notwendigen Schritte (20/200)
++ Testen der Webapplikation und Dokumentation der einzelnen Testfälle und deren Ergebnisse (20/200)
 
 ### Anforderungen **zur Gänze erfüllt**
-+ Erstellung eines Prototypen zur Authentifikation mittels Active-Directory
-+ Authentifikation mittels externen Active-Directory mit bestehender User-Datenbank (z.B. dc-01.tgm.ac.at)
-+ Verwendung von Deployment-Tool und entsprechende Dokumentation der notwendigen Schritte
-+ Testen der Webapplikation und Dokumentation der einzelnen Testfälle und deren Ergebnisse
++ Erstellung eines Prototypen zur Authentifikation mittels Active-Directory (30/200)
++ Authentifikation mittels externen Active-Directory mit bestehender User-Datenbank (z.B. dc-01.tgm.ac.at) (20/200)
++ Verwendung von Deployment-Tool und entsprechende Dokumentation der notwendigen Schritte (10/200)
++ Testen der Webapplikation und Dokumentation der einzelnen Testfälle und deren Ergebnisse (10/200)
 
 ## Quellenverzeichnis
-[Kerberos Dokumentation](http://www.kerberos.org/docs/index.html)
-[Authentication Protocols](http://www.kerberos.org/docs/index.html)
-[Singel Sign-On im Vergleich](https://dafrk-blog.com/de/sso-kerberos-saml-oauth-sap/)
+[Kerberos Dokumentation](http://www.kerberos.org/docs/index.html)  
+[Authentication Protocols](http://www.kerberos.org/docs/index.html)  
+[Singel Sign-On im Vergleich](https://dafrk-blog.com/de/sso-kerberos-saml-oauth-sap/)  
