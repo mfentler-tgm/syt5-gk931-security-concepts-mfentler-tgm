@@ -56,7 +56,11 @@ RubyCAS
 CASino
 
 Ein Einsatzgebiet könnte beispielsweise sein, um Bildunsinstitute zu vernetzen und einen freien Wissensaustausch zu ermöglichen.
-## Open Authorization (OAuth)
+## Open Authorization 2.0 (OAuth)
+Ist ein offenes Protokoll, das Api-Authorisierungen für Desktop-, Web- und Mobileanwendungen erlaubt.  
+Der Benutzer erlaubt den zugriff auf seine Daten, die von einem anderen dienst bereitgestellt werden, ohne dabei die Zugangsdaten auf der Webseite einzugeben.  
+
+Somit kann man 
 
 ## Security Assertion Markup Language (SAML)
 
@@ -66,4 +70,7 @@ Ein Einsatzgebiet könnte beispielsweise sein, um Bildunsinstitute zu vernetzen 
 https://de.wikipedia.org/wiki/Single_Sign-on  
 https://de.wikipedia.org/wiki/Ticket_Granting_Ticket  
 https://de.wikipedia.org/wiki/Central_Authentication_Service  
+https://de.wikipedia.org/wiki/OAuth  
+https://oauth.net/2/  
+
 
