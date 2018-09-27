@@ -64,7 +64,23 @@ Das OAuth 2.0-Autorisierungsframework ermöglicht Drittanbieter Anwendung, um be
 Google Sign-On auf Webseiten beispielsweise.
 
 ## Security Assertion Markup Language (SAML)
+XML-Framework zum Austausch von Authentifizierungsinformationen.  
+SAML stellt Funktionen für die Übertragung von sicherheitsbezogenen Informationen bereit.
 
+### Aufbau
+_SAML Assertion_
+
+      <saml:Assertion ...>
+        ...
+      </saml:Assertion>
+Die Assertions sind Aussagen, die von einem Service-Provider genutzt werden um über das Zulassen eines Zugriffs zu entscheiden.  
+Es gibt 3 Arten von Statements:
+- Authentication statement  
+Authentifizierung für Subjekt S zur Zeit t mittels M (Single Sign-On)
+- Attribute statement  
+Subjekt S verfügt über Attribut A mit dem Wert a (verteilte Transaktionen)
+- Authorization decision statement  
+Autorisierung bestimmter Ressourcen
 ## Kerberos
 
 ## Quellen
@@ -73,5 +89,7 @@ https://de.wikipedia.org/wiki/Ticket_Granting_Ticket
 https://de.wikipedia.org/wiki/Central_Authentication_Service  
 https://de.wikipedia.org/wiki/OAuth  
 https://oauth.net/2/  
+https://de.wikipedia.org/wiki/Security_Assertion_Markup_Language  
+
 
 
