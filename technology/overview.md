@@ -9,6 +9,17 @@ Dabei wird auf folgende Punkte genauer eingegangen:
 - Mögliche Einsatzgebiete
 
 ## Single Sign On (SSO)
+Der Benutzer muss sich nur einmal anmelden, um dann auf alle Dienste (lokal auf seinem Rechner) zugreifen zu können, ohne sich immer wieder für alles neu anzumelden.  
+Eine weitere Anforderung an das SSO ist es, dass es nicht schwächer als das normale Authentifizierungsverfahren ist.
+
+### Vor-/Nachteile
+(-) Damit Benutzer nicht bei bei kurzen Handlungspausen wieder abgemeldet werden, erhält diese Authentifizierung einen großzügigen Zeitschranken. Dieser zieht aber zur Folge, dass unbefugten Personen der Zugriff zu diesem Arbeitsplatz bei einer kurzen Abwesenheit der Person ermöglicht wird.  
+(-) Der Dienst ist nur verfügbar, wenn das Single-Sign-On-System auch verfügbar ist.  
+(-) Wenn kein Sign-Off implementiert ist, dann bleibt man bis zum Timeout angemeldet.  
+
+(+) Man muss sich nur noch 1x anmelden.  
+(+) Sicherheit -> Benutzer muss sich nur ein Passwort merken und es wird nur einmal übertragen.  
+(+) Phishing-Attacken werden erschwert -> Nur noch eine Eingabe auf einer Webseite, etc.
 
 ## Ticket Granting Ticket Service (TGT)
 
@@ -19,3 +30,6 @@ Dabei wird auf folgende Punkte genauer eingegangen:
 ## Security Assertion Markup Language (SAML)
 
 ## Kerberos
+
+## Quellen
+https://de.wikipedia.org/wiki/Single_Sign-on  
