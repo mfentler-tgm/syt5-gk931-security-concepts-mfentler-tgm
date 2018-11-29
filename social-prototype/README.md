@@ -64,8 +64,8 @@ Als nächstes wird das File "application.properties" in ein .yml File umgewandel
     security:
     oauth2:
         client:
-        clientId: 233668646673605
-        clientSecret: 33b17e044ee6a4fa383f46ec6e28ea1d
+        clientId: 355441765259442
+        clientSecret: 8888bbc1089155c8f3f5544ac25fbe39
         accessTokenUri: https://graph.facebook.com/oauth/access_token
         userAuthorizationUri: https://www.facebook.com/dialog/oauth
         tokenName: oauth_token
@@ -153,8 +153,20 @@ Das einzige was man beachten muss, ist das Heroku standardmäßig vorraussetzt, 
     git subtree push --prefix pythonapp heroku master
 
 Die Webseite ist nun über folgenden Link, der im Output vom push-Command ersichtlich ist, erreichbar:  
-[https://polar-badlands-95072.herokuapp.com/](https://polar-badlands-95072.herokuapp.com/)  
-Allerdings funktioniert das einloggen da nicht ganz, da Facebook einen nicht zurückleiten kann. Wenn es lokal ausgeführt wird, dann funktioniert es.
+[https://polar-badlands-95072.herokuapp.com/](https://polar-badlands-95072.herokuapp.com/)
+
+## Facebook-Application
+Damit die Applikation sich mit Facebook authentifizieren kann muss man die App noch auf [developers.facebook.com](developers.facebook.com) erstellen.  
+Dort fügt man das Produkt "Facebook-Login" mit folgenden Einstellungen hinzu.  
+
+<center>
+<kbd>
+
+![FacebookEinstellungen1](images/FacebookLogin.png)  
+</kdb>  
+</center>  
+
+Unter _"Einstellungen/Allgemeines"_ findet man die App-ID und das App-Secret, die man in das __application.yml__ File einfügt.  
 
 ## Ergebnis
 Wenn man sich nun mit der Webseite verbindet, sieht man einen Link zum Einloggen mit Facebook. Wenn man darauf klick, öffnet sich Facebook, man muss angeben, dass man der Webseite vertraut und wird daraufhin wieder zurück geleitet.  
