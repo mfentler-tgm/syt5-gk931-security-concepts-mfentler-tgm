@@ -55,17 +55,70 @@ Als erstes erstellt man ein neues Spring Initializr Projekt und added die Depend
 Der erste Schritt danach ist es ein index.html File im "static" Ordner anzulegen, welches die Homepage darstellen soll.
 
 ### Login
+Um das Login zu realisieren muss als erster Schritt die Main Klasse diese Annotationen erhalten.  
 
+    @EnableOAuth2Sso
+    @RestController
+Als nächstes wird das File "application.properties" in ein .yml File umgewandelt, damit man es besser lesen kann mit folgendem Inhalt für die Authentifizierung für Facebook.  
+
+    security:
+    oauth2:
+        client:
+        clientId: 233668646673605
+        clientSecret: 33b17e044ee6a4fa383f46ec6e28ea1d
+        accessTokenUri: https://graph.facebook.com/oauth/access_token
+        userAuthorizationUri: https://www.facebook.com/dialog/oauth
+        tokenName: oauth_token
+        authenticationScheme: query
+        clientAuthenticationScheme: form
+        resource:
+        userInfoUri: https://graph.facebook.com/me
+Um dem User Content zu zeigen, der darauf angepasst ist ob er angemeldet ist oder nicht, werden zwei Container im html File erstellt. (div class="container unauthenticated"; "...authenticated")  
+
+Weiters wird noch eine JavaScript Funktion eingefügt, die das managed.  
+
+Der __Server__ wird zum REST Controller und bekommt einen Endpunkt für die Adresse /user.
+
+    @RequestMapping("/user")
+    public Principal user(Principal principal) {
+        return principal;
+    }
+__Spring Security__ muss nun auch noch gesagt werden, dass der Endpunkt freigeschalten werden soll.  
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http
+                .antMatcher("/**")
+                .authorizeRequests()
+                .antMatchers("/", "/login**", "/webjars/**", "/error**")
+                .permitAll()
+                .anyRequest()
+                .authenticated()
+                //ergänzt für logout
+                .and().logout().logoutSuccessUrl("/").permitAll()
+                .and().csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
+
+    }
 ### Logout
-Um sich auch wieder ausloggen zu können muss auf der Client Seite nur ein Button und JS-Code in das HTML-File eingefügt werden. Anschließend widmen wir uns den Änderungen auf der Server Seite.  
-Spring Security hat bereits schon eine logout Funktion, die die Session und den Cookie bereinigt. Wir müssen nur den Code hier an die vorhandene Method __configure__ anfügen.  
+Um sich auch wieder ausloggen zu können muss auf der Client Seite nur ein Button, der bei onClick die Funktion logout() aufruft, und JS-Code in das HTML-File eingefügt werden.  
+
+    var logout = function() {
+        $.post("/logout", function () {
+            $("#user").html('');
+            $(".unauthenticated").show();
+            $(".authenticated").hide();
+        })
+        return true;
+    }
+Anschließend widmen wir uns den Änderungen auf der __Server Seite__.  
+Spring Security hat bereits schon eine logout Funktion, die die Session und den Cookie bereinigt. Das bedeutet wir müssen uns darum auf der Server Seite nicht kümmern. Wir müssen nur den Code hier an die vorhandene Method __configure()__ anfügen.  
 
     .and().logout().logoutSuccessUrl("/").permitAll()
     .and().csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
-Dafür braucht man auch einen weiteres Package importen
+Dafür muss man ein weiteres Package importen:
 
     import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
-Damit man mit dem CRSF Cookie am Client arbeiten kann, muss eine neue Dependency geadded, das index.html File um ein weiteres Script ergänzt und ajax Code hinzugefügt werden.  
+Damit man mit dem CRSF(Cross Site Request Forgery) Token am Client arbeiten kann, muss eine neue Dependency geadded, das index.html File um ein weiteres Script ergänzt und ajax Code hinzugefügt werden.  
 
     //pom.xml
     <dependency>
@@ -91,3 +144,29 @@ Damit man mit dem CRSF Cookie am Client arbeiten kann, muss eine neue Dependency
         }
         }
     });
+### Deploying
+Deployed wird das ganze auf Heroku. Wie man eine Spring-Boot-Application auf Heroku pusht wird [hier](https://dzone.com/articles/spring-boot-heroku-and-cicd) beschrieben.
+## Ergebnis
+Wenn man sich nun mit der Webseite verbindet, sieht man einen Link zum Einloggen mit Facebook. Wenn man darauf klick, öffnet sich Facebook, man muss angeben, dass man der Webseite vertraut und wird daraufhin wieder zurück geleitet.  
+Dort wird man dann mit einer Willkommens-Nachricht und einem Logout Button empfangen.  
+
+<center>
+<kbd>
+
+![Login](images/login.png)  
+</kbd>
+Unauthenticated
+
+</center>  
+
+<center>  
+<kbd>
+
+![Logout](images/logout.png)
+</kbd>
+Authenticated
+</center>
+
+## Quellen
+[1] [https://docs.spring.io/spring-security/site/docs/4.2.6.RELEASE/apidocs/org/springframework/security/web/csrf/CookieCsrfTokenRepository.html](https://docs.spring.io/spring-security/site/docs/4.2.6.RELEASE/apidocs/org/springframework/security/web/csrf/CookieCsrfTokenRepository.html)  
+[2] [https://spring.io/guides/tutorials/spring-boot-oauth2/](https://spring.io/guides/tutorials/spring-boot-oauth2/)
