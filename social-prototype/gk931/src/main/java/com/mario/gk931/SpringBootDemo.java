@@ -35,7 +35,6 @@ public class SpringBootDemo extends WebSecurityConfigurerAdapter{
                 //ergänzt für logout
                 .and().logout().logoutSuccessUrl("/").permitAll()
                 .and().csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
-
     }
 
 

@@ -145,7 +145,17 @@ Damit man mit dem CRSF(Cross Site Request Forgery) Token am Client arbeiten kann
         }
     });
 ### Deploying
-Deployed wird das ganze auf Heroku. Wie man eine Spring-Boot-Application auf Heroku pusht wird [hier](https://dzone.com/articles/spring-boot-heroku-and-cicd) beschrieben.
+Deployed wird das ganze auf Heroku. Wie man eine Spring-Boot-Application auf Heroku pusht wird [hier](https://dzone.com/articles/spring-boot-heroku-and-cicd) nochmals beschrieben.  
+Das einzige was man beachten muss, ist das Heroku standardmäßig vorraussetzt, dass die Applikation im Project-Root ist. Wenn sie in einem Subdir ist hilft folgender Befehl weiter:  
+
+    git add .
+    git commit -m "Commit msg"
+    git subtree push --prefix pythonapp heroku master
+
+Die Webseite ist nun über folgenden Link, der im Output vom push-Command ersichtlich ist, erreichbar:  
+[https://polar-badlands-95072.herokuapp.com/](https://polar-badlands-95072.herokuapp.com/)  
+Allerdings funktioniert das einloggen da nicht ganz, da Facebook einen nicht zurückleiten kann. Wenn es lokal ausgeführt wird, dann funktioniert es.
+
 ## Ergebnis
 Wenn man sich nun mit der Webseite verbindet, sieht man einen Link zum Einloggen mit Facebook. Wenn man darauf klick, öffnet sich Facebook, man muss angeben, dass man der Webseite vertraut und wird daraufhin wieder zurück geleitet.  
 Dort wird man dann mit einer Willkommens-Nachricht und einem Logout Button empfangen.  
