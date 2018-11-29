@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 @SpringBootApplication
 @EnableOAuth2Sso
@@ -30,7 +31,11 @@ public class SpringBootDemo extends WebSecurityConfigurerAdapter{
                 .antMatchers("/", "/login**", "/webjars/**", "/error**")
                 .permitAll()
                 .anyRequest()
-                .authenticated();
+                .authenticated()
+                //ergänzt für logout
+                .and().logout().logoutSuccessUrl("/").permitAll()
+                .and().csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
+
     }
 
 
