@@ -58,15 +58,26 @@ Das CAS Protokoll ist ein offenes Protokoll, zu dem die CAS Server Implementieru
 RubyCAS  
 CASino
 
-Ein Einsatzgebiet könnte beispielsweise sein, um Bildunsinstitute zu vernetzen und einen freien Wissensaustausch zu ermöglichen.
+Ein Einsatzgebiet könnte beispielsweise sein, um Bildunsinstitute zu vernetzen und einen freien Wissensaustausch zu ermöglichen.  
+
 ## Open Authorization 2.0 (OAuth)
 Ist eine Api-Applikation für Desktop-/Web-/Mobileanwendungen.  
 Das OAuth 2.0-Autorisierungsframework ermöglicht Drittanbieter Anwendung, um begrenzten Zugriff auf einen HTTP-Dienst zu erhalten, entweder auf im Namen eines Ressourcenbesitzers durch Orchestrieren einer Genehmigungsinteraktion zwischen dem Ressourcenbesitzer und dem HTTP-Dienst oder Anwendung von Drittanbietern, um Zugriff in eigenem Namen zu erhalten.
 
-Mit Hilfe von OAuth kann ein User einer Drittanwendung erlauben, auf seine Daten zuzugreifen, die bei einem anderen Dienst gespeichert sind ohne dabei dem Drittanbieter dabei die Zugangsdaten preiszugeben.
+Mit Hilfe von OAuth kann ein User einer Drittanwendung erlauben, auf seine Daten zuzugreifen, die bei einem anderen Dienst gespeichert sind ohne dabei dem Drittanbieter dabei die Zugangsdaten preiszugeben.  
+
+OAuth2 ist von der Struktur ähnlich zu SAML. Es verwendet auch einen Server, der Berechtigungen in Form von Token ausstellt. Dieser heißt hier "Authorization Server".  
+Der wesentliche Unterschied zu SAML besteht darin, dass OAuth2:  
+- Nachrichten auch über URL-Parameter versenden kann  
+- Der OAuth2 Token enthält standardmäßig keine Credentials vom Benutzer
+
+### Vor-/Nachteile
+(+) Keine Credentials vom Benutzer im Token
+(+) Crededentials sind ausschließlich beim Authorization Server und nicht an einer dritten Stelle hinterlegt  
+(+) Sollte der Token abgefangen werden, dann hat der Angreifer keine Zugangsdaten vom Benutzer
 
 ### Einsatzgebiete
-Dienste von Google, Facebook, Twitter etc. benutzen OAuth.
+Dienste von Google, Facebook, Twitter etc. benutzen OAuth2.
 
 ## Security Assertion Markup Language (SAML)
 SAML verwendet einen Service, genannt "Identity Provider Server", welcher sämtliche Passwörter und User-Identitäten enthält. Dieser Server stellt Token aus, wenn die geschickten Zugangsdaten mit den Daten, die für den User gespeichert sind, übereinstimmen. Der Server leitet diesen Token dann an das System weiter, das der User eigentlich besuchen wollte.  
