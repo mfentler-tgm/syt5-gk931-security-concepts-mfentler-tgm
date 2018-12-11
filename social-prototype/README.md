@@ -8,7 +8,7 @@
 Hier wird beschrieben wie man ein OAuth V2 Projekt erstellt, in dem man sich mit Facebook verifizieren, einloggen und ausloggen kann.
 Als erstes erstellt man ein neues Spring Initializr Projekt und added die Dependency Web. Folgende weitere Dependencies werden für die Umsetzung benötigt:  
 
-```java
+```xml
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -62,7 +62,7 @@ Um das Login zu realisieren muss als erster Schritt die Main Klasse diese Annota
     @RestController
 ```
 Als nächstes wird das File "application.properties" in ein .yml File umgewandelt, damit man es besser lesen kann mit folgendem Inhalt für die Authentifizierung für Facebook.  
-```java
+```yaml
     security:
     oauth2:
         client:
@@ -106,7 +106,7 @@ __Spring Security__ muss nun auch noch gesagt werden, dass der Endpunkt freigesc
 ```
 ### Logout
 Um sich auch wieder ausloggen zu können muss auf der Client Seite nur ein Button, der bei onClick die Funktion logout() aufruft, und JS-Code in das HTML-File eingefügt werden.  
-```java
+```js
     var logout = function() {
         $.post("/logout", function () {
             $("#user").html('');
