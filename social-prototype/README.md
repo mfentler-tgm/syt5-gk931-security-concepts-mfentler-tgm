@@ -8,6 +8,7 @@
 Hier wird beschrieben wie man ein OAuth V2 Projekt erstellt, in dem man sich mit Facebook verifizieren, einloggen und ausloggen kann.
 Als erstes erstellt man ein neues Spring Initializr Projekt und added die Dependency Web. Folgende weitere Dependencies werden für die Umsetzung benötigt:  
 
+```java
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -51,16 +52,17 @@ Als erstes erstellt man ein neues Spring Initializr Projekt und added die Depend
             <artifactId>webjars-locator-core</artifactId>
         </dependency>
     </dependencies>
-
+```
 Der erste Schritt danach ist es ein index.html File im "static" Ordner anzulegen, welches die Homepage darstellen soll.
 
 ### Login
 Um das Login zu realisieren muss als erster Schritt die Main Klasse diese Annotationen erhalten.  
-
+```java
     @EnableOAuth2Sso
     @RestController
+```
 Als nächstes wird das File "application.properties" in ein .yml File umgewandelt, damit man es besser lesen kann mit folgendem Inhalt für die Authentifizierung für Facebook.  
-
+```java
     security:
     oauth2:
         client:
@@ -73,18 +75,20 @@ Als nächstes wird das File "application.properties" in ein .yml File umgewandel
         clientAuthenticationScheme: form
         resource:
         userInfoUri: https://graph.facebook.com/me
+```
 Um dem User Content zu zeigen, der darauf angepasst ist ob er angemeldet ist oder nicht, werden zwei Container im html File erstellt. (div class="container unauthenticated"; "...authenticated")  
 
 Weiters wird noch eine JavaScript Funktion eingefügt, die das managed.  
 
 Der __Server__ wird zum REST Controller und bekommt einen Endpunkt für die Adresse /user.
-
+```java
     @RequestMapping("/user")
     public Principal user(Principal principal) {
         return principal;
     }
+```
 __Spring Security__ muss nun auch noch gesagt werden, dass der Endpunkt freigeschalten werden soll.  
-
+```java
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -99,9 +103,10 @@ __Spring Security__ muss nun auch noch gesagt werden, dass der Endpunkt freigesc
                 .and().csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
 
     }
+```
 ### Logout
 Um sich auch wieder ausloggen zu können muss auf der Client Seite nur ein Button, der bei onClick die Funktion logout() aufruft, und JS-Code in das HTML-File eingefügt werden.  
-
+```java
     var logout = function() {
         $.post("/logout", function () {
             $("#user").html('');
@@ -110,23 +115,27 @@ Um sich auch wieder ausloggen zu können muss auf der Client Seite nur ein Butto
         })
         return true;
     }
+```
 Anschließend widmen wir uns den Änderungen auf der __Server Seite__.  
 Spring Security hat bereits schon eine logout Funktion, die die Session und den Cookie bereinigt. Das bedeutet wir müssen uns darum auf der Server Seite nicht kümmern. Wir müssen nur den Code hier an die vorhandene Method __configure()__ anfügen.  
-
+```java
     .and().logout().logoutSuccessUrl("/").permitAll()
     .and().csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
+```
 Dafür muss man ein weiteres Package importen:
-
+```java
     import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+```
 Damit man mit dem CRSF(Cross Site Request Forgery) Token am Client arbeiten kann, muss eine neue Dependency geadded, das index.html File um ein weiteres Script ergänzt und ajax Code hinzugefügt werden.  
-
+```xml
     //pom.xml
     <dependency>
         <groupId>org.webjars</groupId>
         <artifactId>js-cookie</artifactId>
         <version>2.1.0</version>
     </dependency>
-
+```
+```js
     //index.html
     <script type="text/javascript" src="/webjars/js-cookie/js.cookie.js"></script>
 
@@ -144,6 +153,8 @@ Damit man mit dem CRSF(Cross Site Request Forgery) Token am Client arbeiten kann
         }
         }
     });
+```
+
 ### Deploying
 Deployed wird das ganze auf Heroku. Wie man eine Spring-Boot-Application auf Heroku pusht wird [hier](https://dzone.com/articles/spring-boot-heroku-and-cicd) nochmals beschrieben.  
 Das einzige was man beachten muss, ist das Heroku standardmäßig vorraussetzt, dass die Applikation im Project-Root ist. Wenn sie in einem Subdir ist hilft folgender Befehl weiter:  
