@@ -69,8 +69,14 @@ Mit Hilfe von OAuth kann ein User einer Drittanwendung erlauben, auf seine Daten
 Dienste von Google, Facebook, Twitter etc. benutzen OAuth.
 
 ## Security Assertion Markup Language (SAML)
-XML-Framework zum Austausch von Authentifizierungsinformationen.  
-SAML stellt Funktionen für die Übertragung von sicherheitsbezogenen Informationen bereit.
+SAML verwendet einen Service, genannt "Identity Provider Server", welcher sämtliche Passwörter und User-Identitäten enthält. Dieser Server stellt Token aus, wenn die geschickten Zugangsdaten mit den Daten, die für den User gespeichert sind, übereinstimmen. Der Server leitet diesen Token dann an das System weiter, das der User eigentlich besuchen wollte.  
+Dieses überprüft dann den Token nochmals ob er von dem Identity Provider Server stammt.  
+
+In Webanwendungen werden häufig Cookies oder Sessions genutzt um den User dann angemeldet zu halten. Solange der User den Cookie oder die Session besitzt muss kein neuer SAML-Token angefragt werden.
+
+### Vorteile/Nachteile
+(-) Im Token ist auch das Passwort des Users enthalten. Schafft es ein Angreifer den Token abzufangen, so hat er die Anmeldedaten des Users.  
+(-) Sendet längere Nachrichten über HTTP-POST
 
 ### Aufbau
 _SAML Assertion_
