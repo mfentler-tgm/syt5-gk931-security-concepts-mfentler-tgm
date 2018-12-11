@@ -106,17 +106,17 @@ Genauggenommen besteht es aus 3 Diensten:
 - Client/Server Exchange, ist die Komponente über die ein Service Ticket verarbeitet wird.
 
 ## Quellen
-https://de.wikipedia.org/wiki/Single_Sign-on  
-https://de.wikipedia.org/wiki/Ticket_Granting_Ticket  
-https://de.wikipedia.org/wiki/Central_Authentication_Service  
-https://de.wikipedia.org/wiki/OAuth  
-https://oauth.net/2/  
-https://de.wikipedia.org/wiki/Security_Assertion_Markup_Language  
-https://www.security-insider.de/was-ist-oauth-a-712468/  
-https://de.wikipedia.org/wiki/Kerberos_(Informatik)  
-http://www.kerberos.org/docs/index.html  
-https://dafrk-blog.com/de/sso-kerberos-saml-oauth-sap/  
-https://www.getkisi.com/blog/authentication-protocols-overview  
+[ttps://de.wikipedia.org/wiki/Single_Sign-on](https://de.wikipedia.org/wiki/Single_Sign-on)  
+[https://de.wikipedia.org/wiki/Ticket_Granting_Ticket](https://de.wikipedia.org/wiki/Ticket_Granting_Ticket)  
+[https://de.wikipedia.org/wiki/Central_Authentication_Service](https://de.wikipedia.org/wiki/Central_Authentication_Service)  
+[https://de.wikipedia.org/wiki/OAuth](https://de.wikipedia.org/wiki/OAuth)  
+[https://oauth.net/2/](https://oauth.net/2/)  
+[https://de.wikipedia.org/wiki/Security_Assertion_Markup_Language](https://de.wikipedia.org/wiki/Security_Assertion_Markup_Language)  
+[https://www.security-insider.de/was-ist-oauth-a-712468/](https://www.security-insider.de/was-ist-oauth-a-712468/)  
+[https://de.wikipedia.org/wiki/Kerberos_(Informatik)](https://de.wikipedia.org/wiki/Kerberos_(Informatik))  
+[http://www.kerberos.org/docs/index.html](http://www.kerberos.org/docs/index.html)  
+[https://dafrk-blog.com/de/sso-kerberos-saml-oauth-sap/](https://dafrk-blog.com/de/sso-kerberos-saml-oauth-sap/)  
+[https://www.getkisi.com/blog/authentication-protocols-overview](https://www.getkisi.com/blog/authentication-protocols-overview)  
 
 
 
